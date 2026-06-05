@@ -1,0 +1,77 @@
+
+//Valid pallindrome//
+
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+           int i = 0;
+    int j = s.length()-1;
+
+    while (i < j) {
+
+        while (i < j && !isalnum(s[i]))
+            i++;
+
+        while (i < j && !isalnum(s[j]))
+            j--;
+
+        if (tolower(s[i]) != tolower(s[j]))
+            return false;
+
+        i++;
+        j--;
+    }
+
+    return true;
+}
+     
+     
+        
+    
+};
+
+
+
+//REverse string //
+
+
+class Solution {
+public:
+    void reverseString(vector<char>& v) {
+       int i=0;
+       int j=v.size()-1;
+       while(i<j){
+        swap(v[i],v[j]);
+        i++;
+        j--;
+       }
+    
+    
+    }
+};
+
+
+longest comonn prefix 
+  class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+       if(strs.empty()){
+        return "";
+       }
+        sort(strs.begin(),strs.end());
+     string starting = strs[0];
+        string ending = strs[strs.size() - 1];
+
+        string ans = "";
+
+        int i = 0;
+
+        while (i < starting.size() && starting[i] == ending[i]) {
+            ans.push_back(starting[i]);
+            i++;
+        }
+
+        return ans;
+    }
+};
