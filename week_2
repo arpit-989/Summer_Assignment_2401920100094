@@ -1,1 +1,66 @@
+ Ransomenote question 
+
+
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char,int> count;
+        for(char ch:magazine){
+            count[ch]++;
+        }
+        for(char ch:ransomNote){
+            if(count[ch]>0){
+                count[ch]--;
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+
+//valid anagram question //
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+       if(s.size()!=t.size()){
+        return false;
+       } 
+       vector<int> vt(26);
+       for(int i=0;i<s.size();i++){
+        vt[s[i]-'a']++;
+       }
+        for(int i=0;i<t.size();i++){
+            int x= --vt[t[i]-'a'];
+            if(x<0)
+            return false;
+        }
+
+       return true;
+    }
+};
+
+first unique char 
+
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char, int> freq;
+     int n= s.size();
+     for(char ch:s){
+        freq[ch]++;
+     }
+     for(int i=0;i<n;i++){
+        if(freq[s[i]]==1)
+        return i;
+     }
+        
+        return -1;
+    }
+};
+
+
 
