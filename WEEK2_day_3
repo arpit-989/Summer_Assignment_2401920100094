@@ -1,0 +1,65 @@
+1)
+
+
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int index = haystack.find(needle);
+
+        if (index != string::npos) {
+            return index;
+        }
+
+        return -1;
+    
+    }
+};
+
+
+2//
+
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+      
+
+        int i = 0, j = 0;
+
+        while (i < s.size() && j < t.size()) {
+            if (s[i] == t[j]) {
+                i++;
+            }
+            j++;
+        }
+
+        return i == s.size();
+    }
+};
+
+
+
+
+3///
+
+
+class Solution {
+public:
+    bool repeatedSubstringPattern(string s) {
+        int n =s.size();
+        for(int len=1;len<=n/2;len++){
+            if(n%len==0){
+                string sub=s.substr(0,len);
+
+                string temp ="";
+                while(temp.size()<n){
+                    temp=temp+sub;
+                    if(temp==s){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+};
